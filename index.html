@@ -12,9 +12,38 @@
     <main class="app-shell">
       <section class="hero" aria-label="Current weather search">
         <div class="sky-art" aria-hidden="true">
-          <div class="sun"></div>
+          <div class="storm-glow"></div>
           <div class="cloud cloud-large"></div>
           <div class="cloud cloud-small"></div>
+          <svg class="lightning-bolt" viewBox="0 0 220 360" aria-hidden="true">
+            <defs>
+              <filter id="bolt-glow" x="-70%" y="-70%" width="240%" height="240%">
+                <feGaussianBlur stdDeviation="9" result="blur"></feGaussianBlur>
+                <feColorMatrix
+                  in="blur"
+                  type="matrix"
+                  values="1 0 0 0 1
+                          0 1 0 0 0.86
+                          0 0 1 0 0.36
+                          0 0 0 0.95 0"
+                  result="goldBlur"
+                ></feColorMatrix>
+                <feMerge>
+                  <feMergeNode in="goldBlur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+            </defs>
+            <path class="bolt-halo" d="M132 10 93 96 123 102 76 228 135 135 106 128 153 31"></path>
+            <path class="bolt-halo bolt-branch" d="M112 126 58 164 97 155"></path>
+            <path class="bolt-halo bolt-branch" d="M104 160 139 179 119 174"></path>
+            <path class="bolt-main" d="M132 10 93 96 123 102 76 228 135 135 106 128 153 31"></path>
+            <path class="bolt-main bolt-branch" d="M112 126 58 164 97 155"></path>
+            <path class="bolt-main bolt-branch" d="M104 160 139 179 119 174"></path>
+            <path class="bolt-core" d="M132 10 93 96 123 102 76 228 135 135 106 128 153 31"></path>
+          </svg>
+          <div class="rain rain-back"></div>
+          <div class="rain rain-front"></div>
         </div>
 
         <div class="weather-panel">
